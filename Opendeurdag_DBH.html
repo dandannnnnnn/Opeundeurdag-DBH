@@ -1,29 +1,50 @@
 <!DOCTYPE html>
 <html lang="nl">
-    <head>
-        <meta charset = "UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Opendeurdag Quiz DBHaacht</title>
-        <link rel="stylesheet" href="style.css">
-        <script src="EnterButton.js"></script>
-    </head>
-    <body>
-        <h1>Welkom bij de Opendeurdag Quiz van <span class = "school">Don Bosco Haacht</span></h1>
-        <p>Geef hieronder je gegevens in om je voor de quiz te kunnen inschrijven:</p>
-        <form action="search_results.html" method="GET">
-            <label for="Naam">Naam</label>
-            <input type="text" id="Achternaam" name="achternaam" placeholder="Geef je achternaam..."></form>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Opendeurdag Quiz DBHaacht</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="EnterButton.js"></script>
+  </head>
+  <body>
+    <h1>
+      Welkom bij de Opendeurdag Quiz van
+      <span class="school">Don Bosco Haacht</span>
+    </h1>
+    <p>
+      Geef hieronder je gegevens in om je voor de quiz te kunnen inschrijven:
+    </p>
+    <div class="container">
+      <form action="">
+        <label for="Naam">Naam</label>
+        <input
+          type="text"
+          id="Achternaam"
+          name="achternaam"
+          placeholder="Geef je achternaam..."
+        />
 
-        <form action="search_results.html" method="GET">
-            <label for="Voornaam">Voornaam</label>
-            <input type="text" id="Voornaam" name="voornaam" placeholder="Geef je voornaam..."></form>
+        <label for="Voornaam">Voornaam</label>
+        <input
+          type="text"
+          id="Voornaam"
+          name="voornaam"
+          placeholder="Geef je voornaam..."
+        />
 
-        <form action="search_results.html" method="GET">
-            <label for="mail">E-mailadres</label>
-            <input type="text" id="Email" name="email" placeholder="Geef je e-mailadres in..."></form> 
+        <label for="mail">E-mailadres</label>
+        <input
+          type="text"
+          id="Email"
+          name="email"
+          placeholder="Geef je e-mailadres in..."
+        />
         <button id="enterButton">Enter</button>
-        <footer>
-            <p>&copy; 2025 Don Bosco Haacht</p>
-        </footer>
-    </body>
+      </form>
+    </div>
+    <footer>
+      <p>&copy; 2025 Don Bosco Haacht</p>
+    </footer>
+  </body>
 </html>
