@@ -25,10 +25,85 @@
 </body>
 
 <script>
-    function sendAnswerA() {}
-    function sendAnswerB() {}
-    function sendAnswerC() {}
-    function sendAnswerD() {}
+    function sendAnswerA() {
+    
+        executeQuery();
+
+        window.location.href =  "quiz/vraag2.html";
+    }
+    function sendAnswerB() {
+        window.location.href = "quiz/vraag2.html";
+    }
+    function sendAnswerC() {
+        window.location.href = "quiz/vraag2.html";
+    }
+    function sendAnswerD() {
+        window.location.href = "quiz/vraag2.html";
+    }
+    async function executeQuery() {
+  // Get the SQL query from the input field
+  const sqlQuery = document.getElementById('sqlQuery').value;
+
+  // Define the request URL
+  const url = '/execute'; // Replace with your server-side endpoint
+
+  // Show a loading indicator
+  const resultsDiv = document.getElementById('results');
+  resultsDiv.textContent = 'Loading...';
+
+  try {
+    // Make a POST request using fetch
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: 'sql=' + encodeURIComponent(sqlQuery)
+    });
+
+    // Check if the response is successful
+    if (!response.ok) {
+      throw new Error(`Error ${response.status}: ${response.statusText}`);
+    }
+
+    // Parse the JSON response
+    const data = await response.json();
+
+    // Display the results
+    if (data.length > 0) {
+      displayResults(data);
+    } else {
+      resultsDiv.textContent = 'No results found.';
+    }
+  } catch (error) {
+    // Handle errors
+    resultsDiv.textContent = `Error: ${error.message}`;
+  }
+}
+
+function displayResults(data) {
+  // Create a table to display the results
+  const table = document.createElement('table');
+  table.setAttribute('border', '1');
+
+  // Create table header row
+  const headerRow = document.createElement('thead');
+  const headerCells = Object.keys(data[0]).map(key => `<th>${key}</th>`).join('');
+  headerRow.innerHTML = `<tr>${headerCells}</tr>`;
+  table.appendChild(headerRow);
+
+  // Create table body rows
+  const tbody = document.createElement('tbody');
+  for (const row of data) {
+    const rowCells = Object.values(row).map(value => `<td>${value}</td>`).join('');
+    tbody.innerHTML += `<tr>${rowCells}</tr>`;
+  }
+  table.appendChild(tbody);
+
+  // Replace existing results (if any)
+  const resultsDiv = document.getElementById('results');
+  resultsDiv.innerHTML = '';
+  resultsDiv.appendChild(table);
+}
+    }
 </script>
 
 </html>
