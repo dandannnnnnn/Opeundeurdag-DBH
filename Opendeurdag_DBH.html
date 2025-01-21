@@ -31,6 +31,9 @@
         const errorDisplay = document.getElementById('error');
         const enterButton = document.getElementById('enterButton');
 
+        enterButton.addEventListener('click', function (e) {
+        const emailValue = emailInput.value;
+
         // Check if email contains '@'
         if (!emailValue.includes('@')) {
                     e.preventDefault(); // Prevent form submission
@@ -38,5 +41,6 @@
                 } else {
                     errorDisplay.textContent = ''; // Clear error message if valid
                 }
+            });
     </script>
 </html>
