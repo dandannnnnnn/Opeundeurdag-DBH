@@ -26,4 +26,17 @@
             <p>&copy; 2025 Don Bosco Haacht</p>
         </footer>
     </body>
+    <script>
+        const form = document.getElementById('Email');
+        const errorDisplay = document.getElementById('error');
+        const enterButton = document.getElementById('enterButton');
+
+        // Check if email contains '@'
+        if (!emailValue.includes('@')) {
+                    e.preventDefault(); // Prevent form submission
+                    errorDisplay.textContent = 'E-mailadres moet een "@" bevatten.';
+                } else {
+                    errorDisplay.textContent = ''; // Clear error message if valid
+                }
+    </script>
 </html>
