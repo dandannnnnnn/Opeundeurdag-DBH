@@ -29,20 +29,21 @@
         </footer>
     </body>
     <script>
-        const form = document.getElementById('Email');
+        const emailInput = document.getElementById('Email');
         const errorDisplay = document.getElementById('error');
         const enterButton = document.getElementById('enterButton');
-
+    
         enterButton.addEventListener('click', function (e) {
-        const emailValue = emailInput.value;
-
-        // Check if email contains '@'
-        if (!emailValue.includes('@')) {
-                    e.preventDefault(); // Prevent form submission
-                    errorDisplay.textContent = 'E-mailadres moet een "@" bevatten.';
-                } else {
-                    errorDisplay.textContent = ''; // Clear error message if valid
-                }
-            });
+            const emailValue = emailInput.value.trim();
+    
+            // Regular expression to validate email format
+            const emailRegex = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
+    
+            if (!emailRegex.test(emailValue)) {
+                e.preventDefault(); // Prevent form submission
+                errorDisplay.textContent = 'E-mailadres is ongeldig. Controleer het formaat.';
+            } else {
+                errorDisplay.textContent = ''; // Clear error message if valid
+            }
+        });
     </script>
-</html>
