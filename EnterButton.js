@@ -1,7 +1,3 @@
-/* Selecteer de knop met het id 'mijnKnop'
-const knop = document.getElementById('enterButton'); */
-
-/* Voeg een event listener toe voor de klik
-knop.addEventListener('click', function() {
-    window.location.href = '../quiz/vraag1.html';
-}); */
+document.getElementById("enterButton").addEventListener("click", function() {
+    window.location.href = "Opendeurdag_DBH.html";
+});
