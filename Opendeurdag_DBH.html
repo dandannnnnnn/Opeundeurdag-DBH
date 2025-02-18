@@ -1,50 +1,36 @@
 <!DOCTYPE html>
 <html lang="nl">
-    <head>
-        <meta charset = "UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Opendeurdag Quiz DBHaacht</title>
-        <link rel="stylesheet" href="style.css">
-        <script src="EnterButton.js"></script>
-    </head>
-    <body>
-        <h1>Welkom bij de Opendeurdag Quiz van <span class = "school">Don Bosco Haacht</span></h1>
-        <p>Geef hieronder je gegevens in om je voor de quiz te kunnen inschrijven:</p>
-        <form action="search_results.html" method="GET">
-            <label for="Naam*">Naam</label>
-            <input type="text" id="Achternaam" name="achternaam" placeholder="Geef je achternaam..."></form>
 
-        <form action="search_results.html" method="GET">
-            <label for="Voornaam*">Voornaam</label>
-            <input type="text" id="Voornaam" name="voornaam" placeholder="Geef je voornaam..."></form>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opendeurdag Quiz DBHaacht</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-        <form action="search_results.html" method="GET">
-            <label for="mail*">E-mailadres</label>
-            <input type="text" id="Email" name="email" placeholder="Geef je e-mailadres in..."></form>
-        
-        <h6>* verplicht in te vullen</h6>
-        <span id = "error"></span><br>
-        <button id="enterButton">Enter</button>
-        <footer>
-            <p>&copy; 2025 Don Bosco Haacht</p>
-        </footer>
-    </body>
-    <script>
-        const emailInput = document.getElementById('Email');
-        const errorDisplay = document.getElementById('error');
-        const enterButton = document.getElementById('enterButton');
-    
-        enterButton.addEventListener('click', function (e) {
-            const emailValue = emailInput.value.trim();
-    
-            // Regular expression to validate email format
-            const emailRegex = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
-    
-            if (!emailRegex.test(emailValue)) {
-                e.preventDefault(); // Prevent form submission
-                errorDisplay.textContent = 'E-mailadres is ongeldig. Controleer het formaat.';
-            } else {
-                errorDisplay.textContent = ''; // Clear error message if valid
-            }
-        });
-    </script>
+<body>
+    <h1>Welkom bij de Opendeurdag Quiz van <span class="school">Don Bosco Haacht</span></h1>
+    <p>Geef hieronder je gegevens in om je voor de quiz te kunnen inschrijven:</p>
+
+    <label for="Achternaam">Naam*</label>
+    <input type="text" id="Achternaam" name="achternaam" placeholder="Geef je achternaam...">
+
+    <label for="Voornaam">Voornaam*</label>
+    <input type="text" id="Voornaam" name="voornaam" placeholder="Geef je voornaam...">
+
+    <label for="Email">E-mailadres*</label>
+    <input type="text" id="Email" name="email" placeholder="Geef je e-mailadres in...">
+
+    <h6>* verplicht in te vullen</h6>
+    <span id="error"></span><br>
+    <button id="enterButton">Enter</button>
+    <div id="loginStatus"></div>
+
+    <footer>
+        <p>© 2025 Don Bosco Haacht</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
